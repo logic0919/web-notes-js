@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        // 常用的键盘事件
+        //1. keyup 按键弹起的时候触发 
+        // document.onkeyup = function() {
+        //         console.log('我弹起了');
+
+        //     }
+        document.addEventListener('keyup', function () {
+            console.log('我弹起了');
+        })
+
+        //3. keypress 按键按下的时候触发  不能识别功能键 比如 ctrl shift 左右箭头
+        document.addEventListener('keypress', function () {
+            console.log('我按下了press');
+        })
+        //2. keydown 按键按下的时候触发  能识别功能键 比如 ctrl shift 左右箭头
+        document.addEventListener('keydown', function () {
+            console.log('我按下了down');
+        })
+            // 4. 三个事件的执行顺序  keydown -- keypress -- keyup
+
+        // input事件
+        let inp=document.querySelector('input')
+        inp.addEventListener('input',function(){
+            console.log(inp.value.length);//输出文本域中的字符长度
+        })
+    </script>
+</body>
+
+</html>

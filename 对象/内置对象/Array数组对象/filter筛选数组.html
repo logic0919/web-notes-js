@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1=[10,20,30,40,50]
+        // const arr2=arr1.filter(function(item){
+        //     return item>30
+        // })
+        // currentValue(当前元素的值)必须写，index(当前元素下标)可选
+        // 返回新数组，不影响原数组
+        // 以下是箭头函数写法
+        const arr2=arr1.filter(item=> item > 30)
+        console.log(arr2);
+    </script>
+</body>
+</html>

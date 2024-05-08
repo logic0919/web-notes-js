@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj={
+            name:'andy',
+            age:18,
+            sex:'male'
+        }
+        // 找与属性名相同的变量进行赋值操作
+        const {age,name}=obj
+        console.log(age);
+        console.log(name);
+        // 以下不可以，会报错，因为在对象外面已经有了名为name1的变量，但可以重新改名，格式是：旧变量名:新变量名
+        const name1='join'
+        let obj1 = {
+            name1: 'andy',
+            age1: 18,
+            sex1: 'male'
+        }
+        // const {age1, name1 } = obj1//这一行会报错
+        const {age1, name1:name2 } = obj1
+        console.log(name2);
+        // 解构数组对象
+        const pig = [{
+            uname:"佩奇",
+            uage: 6
+        }]
+        const [{ uname, uage }] = pig
+        console.log(uname)
+        console.log(uage)
+        // 多级对象解构
+        const pig1 = {
+            name3: '佩奇',
+            family: {
+                mother:'猪妈妈',
+                father:'猪爸爸',
+                sister: '乔治'
+            },
+            age3: 6
+        }
+        const {name3, family: {mother, father, sister},age3} = pig
+        console.log(name3)
+        console.log(mother)
+        console.log(father)
+        console.log(sister)
+        console.log(age3);
+    </script>
+</body>
+</html>

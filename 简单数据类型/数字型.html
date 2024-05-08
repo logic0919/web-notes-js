@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>简单数据类型——数字型</title>
+    <script>
+        var x = 10;//数字型
+        x = 'pink';//字符串型
+
+        var num1 = 010;//八进制下的10，即十进制下的8；0作为前缀
+        console.log(num1);
+        var num2 = 0xff;//0x作为前缀是十六进制，表示十进制下的255
+        console.log(num2);
+
+        // 数字型的最大值
+        console.log(Number.MAX_VALUE);
+        // 数字型的最小值
+        console.log(Number.MIN_VALUE);
+        // 无穷大
+        console.log(Number.MAX_VALUE * 2); // Infinity 无穷大
+        // 无穷小
+        console.log(-Number.MAX_VALUE * 2); // -Infinity 无穷小
+        // 非数字
+        // NaN 是粘性的。任何对 NaN 的操作都会返回 NaN
+        console.log('pink老师' - 100); // NaN
+
+        // isNaN() 这个方法用来判断非数字   并且返回一个值 如果是数字返回的是 false 如果不是数字返回的是true
+        console.log(isNaN(12)); // false
+        console.log(isNaN('pink老师')); // true
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        // 动态参数
+        // arguments是伪数组
+        function getSum(){
+            let sum=0
+            for(let i=0;i<arguments.length;i++)
+            sum+=arguments[i]
+            console.log(sum);
+        }
+        getSum(1,2)
+        getSum(1,2,3,4)
+
+
+        // 剩余参数
+        // arr数组是真数组
+        function test(name,age,...arr){
+            console.log(arr);
+        }
+        test('andy',20,1,2,3,4)
+
+
+        // 展开运算符
+        // 运用场景：求数组最大值、最小值
+        let arr=[1,2,6,5,4,3]
+        console.log(Math.max(...arr));//6
+        // 运用场景1：合并数组
+        let arr1=[1,2,3,4]
+        let arr2=[5,6,7,8]
+        let arr3=[...arr1,...arr2]
+        console.log(arr3);
+        // 运用场景2：数组克隆
+        const sanzhihua = ['E', 'G', 'M'];
+        const sanyecao = [...sanzhihua];// ['E','G','M']
+        console.log(sanyecao);
+        // 运用场景3：将伪数组转为真正的数组
+        const divs = document.querySelectorAll('div')
+        console.log(divs);
+        // 伪数组没有push方法
+        // divs.push(1)//Uncaught TypeError: divs.push is not a function
+        const divArr = [...divs];
+        // 真数组有push方法
+        divArr.push(1)
+        console.log(divArr);//[div, div, div, 1]
+    </script>
+</body>
+</html>

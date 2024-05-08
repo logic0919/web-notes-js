@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象拷贝
+        const o1= {name: '佩奇', age: 6}
+        const o2={}
+        Object.assign(o2,o1)
+        console.log(o2);//{name: 佩奇, age: 6}
+        // 给对象新增属性，合并对象
+        const o3 = {name:'佩奇',age: 6}
+        Object.assign(o3,{ gender:'女'})
+        console.log(o3) //{name: 佩奇’，age: 6，gender:'女}
+
+        // 该该方法里有两个参数，如果第一个参数中的属性在第二个中没有，那结果中是该属性的值是第一个的
+        // 如果两个参数中有相同的属性名，那结果中第二个会覆盖掉第一个值，即结果中是该属性的值是第二个的
+    </script>
+</body>
+</html>

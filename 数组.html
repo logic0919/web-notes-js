@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        // 1.数组(Array) ：就是一组数据的集合 存储在单个变量下的优雅方式 
+        // 2. 利用new 创建数组
+        var arr = new Array(); // 创建了一个空的数组
+        // 3. 利用数组字面量创建数组 []
+        var arr = []; // 创建了一个空的数组
+        console.log(arr);
+        var arr1 = [1, 2, 'pink老师', true];
+        console.log(arr1);
+        console.log(arr1[2]); // pink老师
+        console.log(arr1[3]); // true
+        console.log(arr1[4]); // 因为没有这个数组元素 所以输出的结果是 undefined
+
+        //新增数组元素
+        // 1. 新增数组元素 修改length长度 
+        var arr = ['red', 'green', 'blue'];
+        arr.length = 5; // 把我们数组的长度修改为了 5  里面应该有5个元素 
+        console.log(arr);
+        console.log(arr[3]); // undefined
+        // 2. 新增数组元素 修改索引号 追加数组元素
+        var arr1 = ['red', 'green', 'blue'];
+        arr1[3] = 'pink';
+        console.log(arr1);
+        arr1 = '有点意思';
+        console.log(arr1); // 不要直接给 数组名赋值 否则里面的数组元素都没有了
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        localStorage.setItem('name','ljy')//增
+        localStorage.setItem('age','18')//增
+        localStorage.removeItem('age')//删
+        localStorage.setItem('name','lt')//改
+        document.write(localStorage.getItem('name'))//查
+        // sessionStorage是一样的用法
+
+
+        let obj={
+            name:'pink',
+            age:18,
+            sex:'nan'
+        }
+        // 1.
+        // 复杂数据类型存储必须转换为 JSON字符串存储 
+        // JSON 对象 属性和值有引号，引号统一是双引号
+        localStorage.setItem('obj',JSON.stringify(obj))//转成了字符串形式
+        console.log(localStorage.getItem('obj'));//{"name":"pink","age":18,"sex":"nan"}
+
+        // 2.
+        // 把JSON字符串转为对象形式
+        console.log(JSON.parse(localStorage.getItem('obj')));
+    </script>
+</body>
+</html>

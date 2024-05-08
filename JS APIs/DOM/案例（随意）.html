@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        span {
+            align-self: flex-end;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            border: 1px solid red;
+        }
+
+        .aa {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span></span>
+        <span></span>
+        hei xiu~
+    </div>
+    <script>
+        let div = document.querySelector('div')
+        let count = 1
+        let span = document.querySelectorAll('span')
+        function Img(bkg, num) {
+            this.bkg = bkg;
+            this.num = num;
+        }
+        img1 = new Img('rgb(83, 209, 192)', 0)
+        img2 = new Img('rgb(232, 128, 54)', 1)
+        const arr = [img1, img2]
+        function cut() {
+            count = 1 - count
+            div.style.backgroundColor = arr[count].bkg
+            for (let i = 0; i < 2; i++) {
+                span[i].className = ''
+            }
+            span[arr[count].num].className = 'aa'
+            // span[count].className = 'aa'//也可以
+        }
+        let time = setInterval(cut, 1000)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        //如果函数返回两个值，那只返回最后一个值。
+        return a, b;
+        //如果想要返回两个，可以以数组形式返回。
+        return [a, b];
+
+        //形参实参个数匹配问题
+        function getSum(num1, num2) {
+            console.log(num1 + num2);
+
+        }
+        // 如果实参的个数多于形参的个数  会取到形参的个数 
+        getSum(1, 2, 3);//3
+        // 如果实参的个数小于形参的个数  多于的形参定义为undefined  最终的结果就是 NaN
+        // 形参可以看做是不用声明的变量  num2 是一个变量但是没有接受值  结果就是undefined 
+        getSum(1); // NaN
+
+        //函数如果有return 则返回的是 return 后面的值，如果函数么有 return 则返回undefined
+
+        //arguments的使用
+        //只有函数才有 arguments对象  而且是每个函数都内置好了这个arguments
+        // 伪数组 并不是真正意义上的数组
+        // 1. 具有数组的 length 属性
+        // 2. 按照索引的方式进行存储的
+        // 3. 它没有真正数组的一些方法 pop()  push() 等等
+
+        //函数两种声明方式
+        // 1. 利用函数关键字自定义函数(命名函数)
+        function fn() {
+        }
+        fn();
+        // 2. 函数表达式(匿名函数) 
+        // var 变量名 = function() {};
+        var fun = function (aru) {
+            console.log('我是函数表达式');
+            console.log(aru);
+        }
+        fun('pink老师');
+        // (1) fun是变量名 不是函数名
+        // (2) 函数表达式声明方式跟声明变量差不多，只不过变量里面存的是值 而 函数表达式里面存的是函数
+        // (3) 函数表达式也可以进行传递参数
+
+        //立即执行函数
+        // (function(){}());
+        // (function(){})();
+        (function(a,b){console.log(a+b);}(1,2));
+        (function(a,b){console.log(a+b);})(2,3);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr=[1,5,8]
+        // 无初始值
+        const total1 = arr.reduce(function (prev, current) {
+            return prev + current
+        })
+        console.log(total1)//14
+        // 有初始值
+        const total2 = arr.reduce(function (prev, current) {
+            return prev + current
+        },10)
+        console.log(total2)//24
+        // 箭头函数形式
+        const total3 = arr.reduce((prev, current)=> prev + current, 10)
+        console.log(total3)//24
+
+        // 在对象数组中的使用——必须设初始值
+        const arr1=[{
+            age:18,
+            name:'a'
+        },{
+            age:20,
+            name:'b'
+        },{
+            age:28,
+            name:'c'
+        },
+        ]
+        let sum=arr1.reduce(function(prev,current){
+            return prev+current.age
+        },0)
+        console.log(sum);
+    </script>
+</body>
+</html>

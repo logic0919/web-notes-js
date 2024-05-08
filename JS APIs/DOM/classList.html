@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        .one {
+            width: 300px;
+        }
+
+        .two {
+            background-color: aquamarine;
+        }
+
+        .three {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>哦吼~</div>
+    <script>
+        let div = document.querySelector('div')
+        div.classList.add('one', 'two', 'three')
+        div.classList.remove('one')
+        console.log(div.className);//two three
+        console.log(div.classList);//数组形式['two','three']
+        // toggle的作用是，有该类就删掉，没有就加上
+        div.classList.toggle('one')
+        div.classList.toggle('two')
+        div.classList.toggle('three')
+        console.log(div.classList.contains('one'));//true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button>发送</button>
+    <script>
+        var ipt = document.querySelector('input');
+        var btn = document.querySelector('button');
+        var time = 2;
+        var timer = null;
+        btn.addEventListener('click', function () {
+            var a = time;
+            btn.disabled = true;
+            // 同时按钮里面的内容会变化， 注意 button 里面的内容通过 innerHTML修改
+            btn.innerHTML = '等待' + a-- + '秒';
+            timer = setInterval(function () {
+                if (a == 0) {
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    clearInterval(timer);
+                }
+                else
+                    btn.innerHTML = '等待' + a-- + '秒';
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

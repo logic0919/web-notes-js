@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+<script src="lodash.min.js"></script>
+<script>
+    // 总结：
+    // 防抖和节流的区别在于：
+    // 如对于一个案例，案例描述为在一个input里输入文字，并将文字展示在一个div里
+    // 那么在持续不间断输入文本的前提下，如时间为1秒
+    // 那么防抖是说只有在停止输入1秒之后才会展示在div里，也就是只展示一次并且在这一次就已经展示了全部文字
+    // 但节流是说输入的过程中每过1秒就更新一次展示在div里的文字
+    let count = 0
+    const div = document.querySelector('div')
+    div.innerHTML = count
+    const fun = () => {
+        count++
+        div.innerHTML = count
+    }
+    // 以下这行的意思就是说：
+    // 触发mousemove事件的话，必须停止1000ms以后才能执行fun函数
+    div.addEventListener('mousemove', _.debounce(fun, 1000))
+
+    // 手写防抖函数：
+    // 核心是利用 setTimeout定时器来实现
+    // 1.声明定时器变量
+    // 每次鼠标移动(事件触发)的时候都要先判断是否有定时器，如果有先清除以前的定时器
+    // 2.如果没有定时器，则开启定时器，存入到定时器变量里面
+    // 定时器里面写函数调用
+    // function debounce(fn, t) {
+    //     // 闭包！！！
+    //     let timer
+    //     // return 返回一个匿名函数
+    //     return function () {
+    //         if (timer) {
+    //             clearTimeout(timer)
+    //         }
+    //         timer = setTimeout(function () {
+    //             fn()
+    //         }, 1000)
+    //     }
+    // }
+    // div.addEventListener('mousemove', debounce(fun, 500))
+</script>
+
+</html>

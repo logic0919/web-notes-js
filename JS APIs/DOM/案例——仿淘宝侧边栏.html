@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            div {
+                width: 1200px;
+                margin: 30px auto;
+            }
+
+            .f {
+                height: 300px;
+                background-color: antiquewhite;
+            }
+
+            .s {
+                height: 500px;
+                background-color: aquamarine;
+            }
+
+            .t {
+                height: 800px;
+                background-color: cornflowerblue;
+            }
+
+            .slider {
+                position: absolute;
+                left: 50%;
+                top: 400px;
+                margin-left: 600px;
+                width: 45px;
+                height: 130px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="f"></div>
+        <div class="s"></div>
+        <div class="t"></div>
+        <div class="slider"></div>
+        <script>
+            var head = document.querySelector('.f');
+            var banner = document.querySelector('.s');
+            var main = document.querySelector('.t');
+            var slider = document.querySelector('.slider');
+            let m
+            window.addEventListener('scroll', function () {
+                m = document.documentElement.scrollTop
+                console.log(m);
+                if (m >= 360) {
+                    slider.style.position = 'fixed'
+                    slider.style.top = '40px'
+                }
+                else {
+                    slider.style.position = 'absolute'
+                    slider.style.top = '400px'
+                }
+            })
+        </script>
+
+    </body>
+
+    </html>
+</body>
+
+</html>

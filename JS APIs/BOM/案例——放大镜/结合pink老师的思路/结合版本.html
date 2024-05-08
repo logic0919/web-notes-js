@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .all {
+            width: 1200px;
+            height: 500px;
+            margin: 50px 50px;
+        }
+
+        .l {
+            border: 1px solid rgba(0, 0, 0, .3);
+            position: relative;
+            float: left;
+            height: 300px;
+            width: 300px;
+            background-color: antiquewhite;
+        }
+
+        .r {
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, .3);
+            float: left;
+            margin-left: 30px;
+            width: 600px;
+            height: 600px;
+            background-color: antiquewhite;
+            overflow: hidden;
+        }
+
+        img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 300px;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(242, 240, 113, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="l">
+            <img src="b3.png" alt="">
+            <div class="mask"></div>
+        </div>
+        <div class="r">
+            <img src="b3.png" alt="" style="width:900px">
+        </div>
+    </div>
+    <script>
+        var img = document.querySelector('img');
+        var img2 = document.querySelectorAll('img')[1];
+        var mask = document.querySelector('.mask');
+        var r = document.querySelector(".r");
+        img.addEventListener('mouseover', function (e) {
+            mask.style.display = 'block';
+            var x = e.clientX;
+            var y = e.clientY;
+            mask.style.top = y - 150 + 'px';
+            mask.style.left = x - 150 + 'px';
+            if (x < 150)
+                mask.style.left = 0 + 'px';
+            if (y < 150)
+                mask.style.top = 0 + 'px';
+            if (x > 250)
+                mask.style.left = 100 + 'px';
+            if (y > 250)
+                mask.style.top = 100 + 'px';
+            var Top = mask.offsetTop;
+            var Left = mask.offsetLeft;
+            img2.style.top = -3 * Top + 'px';
+            img2.style.left = -3 * Left + 'px';
+            img.addEventListener('mouseout', function () {
+                mask.style.display = 'none';
+            })
+        })
+    </script>
+</body>
+
+</html>

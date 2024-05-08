@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action=""></form>
+    <script>
+        // 这个是函数表达式
+        const fun=function(a){
+            return a
+        }
+        // 可以简写为以下
+        const fun1=(a)=>{
+            return a
+        }
+        // 因为只有一个参数，所以小括号可以省略
+        const fun2 = a => {
+            return a
+        }
+        // 又因为函数体只有一句话并且是return语句，所以大括号和return可以同时省略
+        const fun3 = a => a
+        // 对于下列这个函数
+        const fun4 = a => {
+            console.log(a);
+        }
+        // 因为函数体只有一个语句，所以大括号可以省略
+        const fun5 = a => console.log(a)
+        // 举例
+        const form = document.querySelector('form')
+        form.addEventListener('click', ev => ev.preventDefault())
+        // 举例
+        // 箭头函数可以直接返回一个对象
+        const fn = (uname) => ({ uname: uname })
+        console.log(fn('andy'));
+        // 箭头函数没有 arguments 动态参数，但是有剩余参数..args
+        // 利用箭头函数来求和
+        const getSum = (...arr) =>{
+            let sum = 0
+            for (let i = 0; i < arr.length; i++){
+                sum += arr[i]
+            }
+            return sum
+        }
+        const result = getSum(2,3,4)
+        console.log(result) //9
+
+
+        // this指向问题
+        // 箭头函数不会创建自己的this，箭头函数的this是上一层作用域的this指向
+        const fn1 =()=> console.log(this)// window
+        fn1()
+        // 对象方法箭头函数this
+        const obj = {
+            uname:'pink老师',
+            sayHi:()=>console.log(this)//window
+        }
+        obj.sayHi()
+        // 函数嵌套
+        const obj1 = {
+            uname:'pink老师',
+            sayHi: function () {
+                let i = 10
+                const count =()=>console.log(this)// obj1
+                count()
+            }
+        }
+        obj1.sayHi()
+
+
+        // 箭头函数不能作为构造实例化对象
+        // let p=(a,b)=>{
+        //     this.a=a,
+        //     this.b=b
+        // }
+        // let p1=new p(1,2)//Uncaught TypeError: p is not a constructor
+        // console.log(p1);
+
+        // 箭头函数不能使用 arguments 变量
+        let fun11 = () => {
+            console.log(arguments);//Uncaught ReferenceError: arguments is not defined
+        }
+        fun11(1, 2, 3);
+    </script>
+</body>
+</html>

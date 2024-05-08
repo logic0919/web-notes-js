@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dad{
+            width: 400px;
+            height: 400px;
+            background-color: antiquewhite;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background-color:aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <div class="son"></div>
+    </div>
+    <script>
+        let dad=document.querySelector('.dad')
+        let son=document.querySelector('.son')
+        dad.addEventListener('mouseenter',function(){
+            console.log('enter了');
+        })
+        dad.addEventListener('mouseleave',function(){
+            console.log('leave了');
+        })
+        dad.addEventListener('mouseover',function(){
+            console.log('over了');
+        })
+        dad.addEventListener('mouseout',function(){
+            console.log('out了');
+        })
+        // 因此推荐使用enter和leave（没有冒泡效果）
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!-- // async和await 两种语法结合可以让异步代码像同步代码一样
+
+// 1.async函数的返回值为 promise 对象
+// 2.promise 对象的结果由 async 函数执行的返回值决定
+
+// 1.await 必须写在 async 函数中
+// 2.await 右侧的表达式一般为 promise 对象
+// 3.await 返回的是 promise成功的值
+// 4.await 的 promise 失败了，就会抛出异常，需要通过 try...catch 捕获处理 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sendajax() {
+            return new Promise((resolve, reject) => {
+                let pname = '陕西省'
+                let cname = '渭南市'
+                const paramsObj = new URLSearchParams({
+                    pname,
+                    cname
+                })
+                const queryString = paramsObj.toString()
+                const xhr = new XMLHttpRequest()
+                xhr.open('GET', `http://hmajax.itheima.net/api/city?${queryString}`)
+                xhr.addEventListener('loadend', () => {
+                    console.log(xhr)
+                    console.log(xhr.response)
+                    console.log(JSON.parse(xhr.response))
+                    resolve(xhr)
+                })
+                xhr.send()
+            })
+        }
+        async function main() {
+            let res = await sendajax()
+            console.log('a');
+            console.log(res.response);
+        }
+        main()
+    </script>
+</body>
+
+</html>

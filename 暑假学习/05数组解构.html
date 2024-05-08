@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[1,2,3]
+        let [min,avg,max]=arr
+        console.log(min);
+        console.log(max);
+        // 交换两值
+        let a=1
+        let b=2;//这一行末尾的分号必须加
+        [b, a]=[a, b]
+        console.log(a);
+        console.log(b);
+        // 变量多，单元值少
+        const [a1,b1,c1,d1]=[1,2,3]
+        console.log(a1) // 1
+        console.log(b1) // 2
+        console.log(c1) // 3
+        console.log(d1) // undefined
+        // 可以设置默认值，以防止有undefined传过来
+        const [a3=0, b3=0, c3=0, d3=0] = [1, 2, 3]
+        console.log(a3) // 1
+        console.log(b3) // 2
+        console.log(c3) // 3
+        console.log(d3) // 0
+        // 用剩余参数解决变量多，单元值少的问题
+        const [a2,b2,...c2]=[1,2,3,4]
+        console.log(c2)//[3,4]
+        // 按需导入赋值
+        const [a4,b4,,d4] = [1, 2, 3, 4]
+        console.log(a4) // 1
+        console.log(b4) // 2
+        console.log(d4) // 4
+        // 多维数组解构
+        const arr1 = [1,2,[3,4]]
+        const [a5,b5,c5] = [1,2,[3,4]]
+        console.log(a5) // 1
+        console.log(b5) // 2
+        console.Log(c5) // [3,4]
+        const [a6, b6, [c6, d6]] = [1, 2, [3, 4]]
+        console.log(a6) // 1
+        console.log(b6) // 2
+        console.log(c6) // 3
+        console.log(d6) // 4
+
+    </script>
+</body>
+</html>

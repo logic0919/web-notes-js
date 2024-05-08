@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fun = () => {
+            let str = 'hello'
+            let fun1 = () => {
+                console.log(str);
+            }
+            return fun1
+        }
+        // fun() == return后面的东西 == fun1
+        // fun()()==fun1()
+        // fun()()
+
+        console.log(fun);//fun函数
+        console.log('---');
+        console.log(fun());//fun1函数
+        console.log('---');
+        console.log(fun()());//执行fun1函数
+
+
+        // fun表示函数本身定义
+        // fun()表示函数返回值
+
+
+
+        function count(){
+            let i=0//这个变量没有被回收，因为根据垃圾回收机制中的引用标记法，fun2又被调用，而fun是fn，而fn中有使用到i变量，所以在count函数中i没有被回收
+            function fun2(){
+                i++
+                console.log(i)
+            }
+            return fun2
+        }
+        i=100
+        const fun2=count()
+        fun2()//1
+        fun2()//2
+        fun2()//3
+        fun2()//4
+    </script>
+</body>
+</html>

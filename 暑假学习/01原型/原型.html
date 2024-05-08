@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname, age){
+            this.uname = uname
+            this.age = age
+        }
+        Star.prototype.sing = function (){
+            console.log('我会唱歌')
+        }//公共的方法写在原型里
+        console.log(Star.prototype)// 返回一个对象称为原型对象
+        const ldh = new Star('刘德华',18)
+        const zxy = new Star('张学友',19)
+        console.log(ldh.sing === zxy.sing)// 结果是 true 说明俩函数一样，共享
+    </script>
+</body>
+</html>

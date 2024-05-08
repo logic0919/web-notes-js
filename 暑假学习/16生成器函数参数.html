@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function * gen(arg){
+            console.log(arg); 
+            let one = yield 111; 
+            console.log(one); 
+            let two = yield 222; 
+            console.log(two); 
+            let three = yield 333; 
+            console.log(three);
+        }
+        //执行获取迭代器对象
+        let iterator = gen('AAA');
+        console.log(iterator.next());
+        //next方法可以传入实参
+        console.log(iterator.next('BBB'))
+        console.log(iterator.next('CCC'))
+        console.log(iterator.next('DDD'))
+
+        // 解释：
+        // 例如对于最后一个语句即25行即'console.log(iterator.next('DDD'))'，此时执行的是17行即'let three = yield 333;'语句，
+        // 那么将DDD传给上一个yield即16行的yield即three，然后执行'iterator.next('DDD')'即17行代码，即打印出three即DDD，
+        // 然后执行'console.log(iterator.next('DDD'))'，因为iterator.next()返回的是其对应的yield语句后面的东西，但因为后面没有yield语句了，所以返回的是undefined
+        // 因此最终打印出的东西依次是：DDD Object{value:undefined,done:true}
+
+    </script>
+</body>
+</html>

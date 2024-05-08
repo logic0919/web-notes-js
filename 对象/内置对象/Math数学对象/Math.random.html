@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math.random</title>
+    <script>
+        Math.random();//返回的是[0,1)随机浮点数
+
+
+        //得到一个两数之间的随机数
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+
+        //得到一个两数之间的随机整数，包左不包右
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        }
+
+
+        //得到一个两数之间的随机整数，包左包右
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+        }
+
+
+        //案例——随即打印出一个数组的某个元素
+        var arr = [1, 44, 2, 8, 'lisi', 'zhangsan'];
+        console.log(arr[getRandomIntInclusive(0, arr.length - 1)]);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

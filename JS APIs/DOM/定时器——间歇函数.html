@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=0
+        // setInterval(函数名（函数名不加小括号），时间间隔（毫秒）)
+        setInterval(function(){
+            document.write(a++)
+        },10000)
+        function fn(){
+            console.log('hei');
+        }
+        let m=setInterval(fn,10000);//有返回值，即为该定时器的序号
+        console.log(m);//每个定时器都有一个特定的序号
+        // setInterval(fn(),1000);这种写法错误
+        clearInterval(m)
+    </script>
+</body>
+</html>

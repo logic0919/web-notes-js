@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组中第一个满足所提供测试函数的元素的值，否则返回undefined
+        const arr =[{
+            name:'小米',
+            price: 1999
+        },{
+            name:'华为',
+            price: 3999
+        }]
+        const re=arr.find(item=> item.name == '小米')
+        console.log(re);
+        re.name='aaa'//可以修改原本的数组
+        console.log(arr);
+    </script>
+</body>
+</html>

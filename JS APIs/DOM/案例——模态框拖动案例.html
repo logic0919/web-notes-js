@@ -1,0 +1,42 @@
+​
+1.模态框拖动案例
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('mousedown', function (e) {
+            var x = e.pageX - div.offsetLeft;
+            var y = e.pageY - div.offsetTop;
+            var fun = function (e) {
+                div.style.left = e.pageX - x + 'px';
+                div.style.top = e.pageY - y + 'px';
+            };
+            document.addEventListener('mousemove', fun);
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', fun);
+            });
+        })
+    </script>
+</body>
+
+</html>

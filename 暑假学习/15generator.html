@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 生成器函数
+        function * gen(){
+            console.log(111);
+            yield '一只没有耳朵';
+            console.log(222);
+            yield '一只没有尾部';
+            console.log(333);
+            yield '真奇怪';
+            console.log(444);
+        }
+
+
+        let iterator = gen();//本质是一个迭代器对象
+        iterator.next()//111 //会执行yield语句前的语句，并将yield后面的东西作为返回
+        iterator.next()//222
+        iterator.next()//333
+        iterator.next()//444
+
+
+        // 下面这部分打印的好像不对，value值不该是undefined而应该是yield语句后的东西，done值也不应该都是true而应该是只有最后一个是true其余是false，但具体问题尚未查明
+        console.log(iterator.next()); //{ value: undefined, done: true }
+        console.log(iterator.next()); //{ value: undefined, done: true }
+        console.log(iterator.next()); //{ value: undefined, done: true }
+        console.log(iterator.next()); //{ value: undefined, done: true }
+
+
+        //遍历
+        for(let v of gen()){
+            console.log(v);//111 一只没有耳朵 222 一只没有尾部 333 真奇怪
+        }
+    </script>
+</body>
+</html>

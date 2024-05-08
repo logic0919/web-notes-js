@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用方法</title>
+    <script>
+        // 字符串操作方法
+        // 1. concat('字符串1','字符串2'....)
+        var str = 'andy';
+        console.log(str.concat('red','bbbb'));
+
+        // 2. substr('截取的起始位置', '截取几个字符');
+        // 应避免使用
+        // var str1 = '改革春风吹满地';
+        // console.log(str1.substr(2, 2)); // 第一个2 是索引号的2 从第几个开始  第二个2 是取几个字符
+   
+        // 3. sunbstring(开始截取的字符的下标[,最后截取的字符的下标的下一个数])方法
+        var str1 = '改革春风吹满地';
+        console.log(str1.substring(2, 6));//春风吹满
+
+        // 1. 替换字符 replace('被替换的字符', '替换为的字符')  它只会替换第一个字符
+        var str = 'andyandy';
+        console.log(str.replace('a', 'b'));
+        // 有一个字符串 'abcoefoxyozzopp'  要求把里面所有的 o 替换为 *
+        var str1 = 'abcoefoxyozzopp';
+        while (str1.indexOf('o') !== -1) {
+            str1 = str1.replace('o', '*');
+        }
+        console.log(str1);
+
+        // 2. 字符转换为数组 split('分隔符')    前面我们学过 join 把数组转换为字符串
+        var str2 = 'red, pink, blue';
+        console.log(str2.split(','));
+        var str3 = 'red&pink&blue';
+        console.log(str3.split('&'));
+
+        // 3. startswith()方法用来判断当前字符串是否以另外一个给定的子字串开头，并根据判断结果返回true或false
+        // str.startswith(searchString[, position])
+        // position参数表示搜索的开始位置，默认值为0
+        const str = 'pink老师上课中'
+        console.log(str.startswith('pink'))//true
+
+        // 4. endWith()方法
+
+        // 5.includes()方法
+        // 区分大小写
+        // includes()方法用于判断一个字符串是否包含在另一个字符串中，根据情况返回true或false
+        // str.includes(searchString[, position])
+
+        //toUpperCase()
+        //toLowerCase()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

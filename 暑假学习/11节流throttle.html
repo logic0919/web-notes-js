@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+<script src="lodash.min.js"></script>
+<script>
+    // 节流使用场景：高频事件：
+    // 鼠标移动 mousemove、页面尺寸缩放 resize、滚动条滚动scroll等等
+    let count = 0
+    const div = document.querySelector('div')
+    div.innerHTML = count
+    const fun = () => {
+        count++
+        div.innerHTML = count
+    }
+    // div.addEventListener('mousemove', _.throttle(fun, 1000))
+
+    // 手写节流函数
+    function throttle(fn, t) {
+        // 起始时间
+        let startTime = 0
+        return function () {
+            // 得到当前的时间
+            let now = Date.now()
+            // 判断如果大于等于 500 采取调用函数
+            if (now - startTime >= t) {
+                // 调用函数
+                fn()
+                // 起始的时间 = 现在的时间   写在调用函数的下面 
+                startTime = now
+            }
+        }
+    }
+    div.addEventListener('mousemove', throttle(fun, 500))
+</script>
+
+</html>

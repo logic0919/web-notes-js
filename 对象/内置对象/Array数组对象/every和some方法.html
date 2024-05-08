@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 方法every检测数组所有元素是否都符合指定条件，如果所有元素都通过检测返回 true，否则返回 false
+        // 方法some检测数组中的元素是否满足指定条件 如果数组中有元素满足条件返回 true，否则返回 false
+        function isBigEnough(element){
+            return element >= 10
+        }
+        console.log([15, 8, 130, 44].every(isBigEnough)); // false
+        console.log([12, 54, 18, 13, 44].every(isBigEnough)); // true
+    </script>
+</body>
+</html>

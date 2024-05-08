@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>发送</button>
+    <script>
+        let obj = {
+            a: 1,
+            b: 2
+        }
+        let fun = function (x, y) {
+            console.log(this);
+        }
+        // 返回值是个函数，但是这个函数里面的this是更改过的obj
+        let fun1 = fun.bind(obj)
+        fun1()//{ a: 1, b: 2 }
+
+        // 使用场景
+        const btn = document.querySelector('button')
+
+        // // 以下这个不可以
+        // btn.addEventListener('click',function(){
+        //     this.disabled=true
+        //     setTimeout(function(){
+        //         this.disabled=false//因为此处this指向window而不是btn
+        //     },2000)
+        // })
+
+        // // 以下这个可以
+        // btn.addEventListener('click', function () {
+        //     this.disabled = true
+        //     setTimeout(()=>{
+        //         this.disabled = false//因为箭头函数的this指向上级的this指向也就是btn
+        //     }, 2000)
+        // })
+
+        // 以下这个可以
+        btn.addEventListener('click', function () {
+            this.disabled = true
+            // setTimeout(function() {
+            //     this.disabled = false
+            // }.bind(btn), 2000)
+            setTimeout(function() {
+                this.disabled = false
+            }.bind(this), 2000)
+        })
+
+    </script>
+</body>
+</html>
